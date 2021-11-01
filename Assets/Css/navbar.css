@@ -1,0 +1,69 @@
+                        /* Logo */
+.logo{
+    height: 140%;
+}
+.logotext{
+    color: #508BD6 !important;
+    font-family: Luminari, fantasy;
+    font-size: 24px;
+    font-weight: bold;
+    margin-left: -19px;
+    margin-top: 2px;
+}
+
+#navbarSupportedContent{
+    margin-top: 5px;
+}
+
+.containerfluidnav{
+    height: 40px;
+    display: flex;
+}
+                    /* Main Nav button */
+.collapse button{
+    align-items: center;
+    height: 35px;
+    font-size: 12px;
+    font-size: 15px;
+    margin-left: 10px;
+}
+                        /*Advance Search and Add Transaction */
+#advanceSearchBtn,
+#addNewTransactionBtn{
+    font-size: 14px !important;
+
+}
+
+.dropdown-menu li:hover{
+    font-size: 17px;
+    font-weight: bolder;
+    background-color: #0f4ee29b;
+}
+
+#navbarSupportedContent li:hover{
+    font-size: 17px;
+    font-weight: bolder;
+    background-color: #0d6dfd77;
+}
+
+
+.secondNavtitle{
+    font-size: 18px;
+    text-decoration: none;
+    margin: 0%;
+}
+                /* Search Button */
+#searchBtn{
+    font-size: 14px !important;
+    height: 32px;
+}
+                    /* Search Bar  */
+.searchbar{
+    height: 100%;
+    width: auto;
+}
+
+.navLoginSignBtn{
+    width: 120px;
+}
+

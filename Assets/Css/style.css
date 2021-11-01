@@ -1,0 +1,61 @@
+html, body{
+    height: 100%;
+    background-color: rgb(50, 110, 250) !important;
+    font-family: "Roboto",sans-serif;
+}
+.globalcontainer{
+    height: 89vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.cardtext{
+    font-size: 12px;
+}
+#forgot-btn{
+    margin-top: 5px;
+    float: right;
+}
+
+.FPcontainer{
+    width: 350px;
+    height: 230px;
+    margin: 20px;
+    border-radius: 10px !important;
+}
+.cardtext a{
+    margin: 0%;
+    text-decoration: none;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus{
+    border: 1px solid black;
+    box-shadow: none;    
+}
+
+
+.logo{
+    display: flex;
+    height: 100%;
+}
+
+.table{
+    font-size: 14px;
+}
+th{
+    color: rgb(243, 235, 235);
+}
+
+#updateBtn{
+    margin-top: 5px;
+    color: white;
+}
+
+.searchModal,
+.addTransaction{
+    width: 50vh;
+}
+
+

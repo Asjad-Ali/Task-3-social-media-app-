@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <!-- font awesome -->
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+
+
+  <!--CSS File attach -->
+  <link rel="stylesheet" href="/Assets/Css/style.css">
+  <link rel="stylesheet" href="/Assets/Css/navbar.css">
+  <link rel="stylesheet" href="/Assets/Css/login.css">
+  <link rel="stylesheet" href="/Assets/Css/signup.css">
+  <link rel="stylesheet" href="/Assets/Css/listing.css">
+
+
+
+  <title>LISTING</title>
+</head>
+
+
+<body>
+  <!-- ==========>Header <================= -->
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid containerfluidnav">
+        <a class="logo navbar-brand" href="./Index.html"><img src="/Assets/Images/logo.png" alt="Logo"></a>
+        <a class="logotext navbar-brand" href="./Index.html">CoinTec</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link " href="./Index.html">LISTING</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./logs.html">LOGS</a>
+            </li>
+          </ul>
+        </div>
+        <div class="collapse flex-row navbar-collapse justify-content-end" id="navbarSupportedContent">
+          <form class="d-flex">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li id="welcom" class="nav-item WelcomeTag dropdown">
+                <ul class="dropdown-menu " aria-labelledby="navbarDropdown">
+                <li>
+                 <a  class="dropdown-item" data-bs-toggle="modal" data-bs-target="#profileModal"  href="">Profile</a>
+                </li>
+                <li>
+                  <a  class="dropdown-item" data-bs-toggle="modal" data-bs-target="#profileModal"   href="">Update</a>
+                </li>
+                  <li><a class="dropdown-item" href="./login.html">Logout</a></li>
+                </ul>
+              </li>
+            </ul>
+          </form>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+
+  <div class="container listing-container">
+    <nav class="navbar secondNav navbar-expand-sm navbar-dark bg-light">
+      <div class="container d-flex ">
+        <div>
+          <p class="secondNavtitle">All Transaction Data</p>
+        </div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse d-flex navbar-collapse justify-content-end" id="">
+          <div class="col-4 mx-auto ">
+            <form class="form-inline d-flex my-2 my-lg-0 w-100">
+              <input id="searchData" class="form-control mr-sm-2 searchbar" type="text" placeholder="Search" aria-label="Search">
+              <button id="searchBtn" class="btn btn-primary" onclick="search()" type="button">SEARCH</button>
+            </form>
+          </div>
+          <div>
+            <button id="advanceSearchBtn" data-bs-toggle="modal" data-bs-target="#advanceSearchModal"
+              data-bs-whatever="@mdo" class="btn btn-primary" type="button">ADVANCED SEARCH</button>
+          </div>
+          <div>
+            <div>
+              <button id="addNewTransactionBtn" data-bs-toggle="modal" data-bs-target="#addNewTransactionModal"
+                data-bs-whatever="@mdo" class="btn btn-primary" type="button">ADD NEW TRANSACTION</button>
+            </div>
+          </div>
+        </div>
+    </nav>
+
+    <!-- =================>Table<=========== -->
+    <table class="table table-striped table-hover table-responsive">
+      <thead class="table-head">
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">NAME </th>
+          <th scope="col">EMAIL</th>
+          <th scope="col">FUNDRAISER</th>
+          <th scope="col">AMOUNT RS.</th>
+          <th scope="col">DATE</th>
+          <th scope="col">ACTION</th>
+        </tr>
+      </thead>
+      <tbody id="listing-table" class="table-body">
+
+      </tbody>
+    </table>
+  </div>
+
+  <!--Advance Search Modal -->
+  <div class="modal fade" id="advanceSearchModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog searchModal modal-dialog-centered " role="document">
+      <div class="modal-content w-70">
+        <div class="modal-body">
+          <h4 class="card-title text-center">Advance Search</h4>
+          <div class="card-text cardtext ">
+            <form  class="form">
+              <div class="row">
+                <div>
+                  <div class="form-group">
+                    <label for="sName">Name</label>
+                    <input type="text" class="form-control form-control-sm" id="searchName" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="searchEmail">Email</label>
+                    <input type="email" class="form-control form-control-sm" id="searchEmail" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="searchFundraiser">FUNDRAISER</label>
+                    <input type="text" class="form-control form-control-sm" id="searchEmail" required>
+                  </div>
+                </div>
+                <div>
+                <div class="form-group">
+                  <label for="for Amount">AMOUNT RS.</label>
+                  <input type="number" class="form-control form-control-sm" id="searchAmount" required>
+                </div>
+              </div>
+              <div>
+                <div class="form-group">
+                  <label for="date">Date</label>
+                  <input type="date" class="form-control form-control-sm" id="searchDate" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <button onclick="" id="SearchBtn" type="submit"
+                class="btn btn-primary btn-block w-100">SEARCH</button>
+              </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  
+  <!--Advance Search Modal -->
+  <div class="modal fade" id="addNewTransactionModal" tabindex="-2" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog addTransaction modal-dialog-centered" role="document">
+      <div class="modal-content w-70">
+        <div class="modal-body">
+          <h4 class="card-title text-center">Add New Transaction</h4>
+          <div class="card-text cardtext ">
+            <form class="form">
+              <div class="row">
+                <div>
+                  <div class="form-group">
+                    <label for="sName">Name</label>
+                    <input type="text" class="form-control form-control-sm" id="addName" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="searchEmail">Email</label>
+                    <input type="email" class="form-control form-control-sm" id="addEmail" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="searchFundraiser">FUNDRAISER</label>
+                    <input type="text" class="form-control form-control-sm" id="addFundraiser" required>
+                  </div>
+                </div>
+                <div>
+                <div class="form-group">
+                  <label for="for Amount">AMOUNT RS.</label>
+                  <input type="number" class="form-control form-control-sm" id="addAmount" required>
+                </div>
+              </div>
+              <div>
+                <div class="form-group">
+                  <label for="date">Date</label>
+                  <input type="date" class="form-control form-control-sm" id="addDate" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <button onclick="" id="addtransactionBtn" type="button"
+                class="btn btn-primary btn-block w-100">ADD TRANSACTION</button>
+              </div>
+              </div>
+            </form>
+           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+<!--Profile data Modal -->
+<div class="modal fade" id="profileModal" tabindex="-3" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog addTransaction modal-dialog-centered" role="document">
+    <div class="modal-content w-70">
+      <div class="modal-body">
+        <h4 class="card-title text-center">Profile Data</h4>
+        <div class="card-text cardtext ">
+          <form class="form">
+            <div class="row">
+              <div>
+                <div class="form-group">
+                  <label for="sName">Name</label>
+                  <input type="text" class="form-control form-control-sm" id="showName" required>
+                </div>
+                <div class="form-group">
+                  <label for="searchEmail">Email</label>
+                  <input type="email" class="form-control form-control-sm" id="showEmail" required>
+                </div>
+                <div class="form-group">
+                  <label for="showPassword">Password</label>
+                  <input type="text" class="form-control form-control-sm" id="showPassword" required>
+                </div>
+                <div class="form-group">
+                  <label for="showConfirmPassword">Password</label>
+                  <input type="text" class="form-control form-control-sm" id="showConfirmPassword" required>
+                </div>
+                <div></div>
+            <div class="form-group">
+              <button onclick="update()" id="updateBtn" type="submit"
+              class="btn btn-primary btn-block w-100">Update</button>
+            </div>
+            </div>
+          </form>
+         </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  <!-- Option 1: Bootstrap Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+
+  <script src="/Scripts/data.json"></script>
+  <script src="/Scripts/listing.js"></script>
+  <script src="/Scripts/currentuser.js"></script>
+  <script src="./Scripts/search.js"></script>
+  <script src="./Scripts/profile.js"></script>
+  <script src="./Scripts/AddTransaction.js"></script>
+</body>
+
+
+</html>
