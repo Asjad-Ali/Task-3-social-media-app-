@@ -1,99 +1,98 @@
+    // 
+    // System: Basic Social Media App
+    // Developer: Asjad Ali (Frontend Trainee)
+    // Date: November 8,2021
+    // Organization: Programmer Force
+    // Purpose: This file profile.js is responsible to handle 
+    // the action and control of the show the profile data using javascript.
+    // and also update the profile information
+
+
 'use strict'
 
 console.log("I'm user profile");
+const curentuser = localStorage.getItem("currentUser");
 
 
-let ProfileName = document.getElementById("showName")
-let ProfileEmail = document.getElementById("showEmail")
-let ProfilePassword = document.getElementById("showPassword")
-let ProfileConfirmPassword = document.getElementById("showConfirmPassword")
+const keysOfLS = Object.keys(localStorage);
+for (let key of keysOfLS) {
+
+    if (key === curentuser) {
+    const CurrentUserData = JSON.parse(localStorage.getItem(key));
+
+    document.getElementById("showName").value=CurrentUserData.name;
+    document.getElementById("showEmail").value=CurrentUserData.email;
+    document.getElementById("showPassword").value=CurrentUserData.password;
+    }}
 
 
-const user = localStorage.getItem("currentUser");
-
-
-const keys = Object.keys(localStorage);
-for (let key of keys) {
-    // console.log(key);
-    if (key === user) {
-        const CurrentUserData = JSON.parse(localStorage.getItem(key));
-        ProfileName.setAttribute("value", CurrentUserData.name);
-        ProfileEmail.setAttribute("value", CurrentUserData.email);
-        ProfilePassword.setAttribute("value", CurrentUserData.password);
-        ProfileConfirmPassword.setAttribute("value", CurrentUserData.confirmPassword);
-    }
-}
-
-
-ProfileName = ProfileName.value;
-ProfileEmail = ProfileEmail.value;
-ProfilePassword = ProfilePassword.value;
-ProfileConfirmPassword = ProfileConfirmPassword.value;
-
-console.log(ProfileEmail);
-
-let validate = true;
-
-function update() 
 {
+    const user = localStorage.getItem("currentUser");
+
+const keysOfLS = Object.keys(localStorage);
+for (let key of keysOfLS) {
+
+    if (key === user) {
+    const CurrentUserData = JSON.parse(localStorage.getItem(key));
 
 
-    let ProfileNameUpdate = document.getElementById("showName");
-    let ProfileEmailUpdate = document.getElementById("showEmail");
-    let ProfilePasswordUpdate = document.getElementById("showPassword");
-    let ProfileConfirmPasswordUpdate = document.getElementById("showPassword");
+    document.getElementById("updateName").value=CurrentUserData.name;
+    document.getElementById("updateEmail").value=CurrentUserData.email;
+    document.getElementById("updatePassword").value=CurrentUserData.password;
+    document.getElementById("updateConfirmPassword").value=CurrentUserData.confirmPassword;
+    }}
 
-    ProfileNameUpdate = ProfileNameUpdate.value;
-    ProfileEmailUpdate = ProfileEmailUpdate.value;
-    ProfilePasswordUpdate = ProfilePasswordUpdate.value;
-    ProfileConfirmPasswordUpdate=ProfileConfirmPasswordUpdate.value;
-
-    console.log(ProfileEmailUpdate);
+    const updateBtn = document.getElementById("updateBtn")  
 
 
-    // console.log(signUpname);
+    updateBtn.addEventListener('click',(e)=>{
+        e.preventDefault();
 
-    const time = new Date();
-    const agent = navigator.userAgent;
+        let getNameUpdate = document.getElementById("updateName");
+        let getEmailUpdate = document.getElementById("updateEmail");
+        let getPasswordUpdate = document.getElementById("updatePassword");
+        let getConfirmPasswordUpdate = document.getElementById("updateConfirmPassword");
 
-    const obj = {
-        name: ProfileNameUpdate,
-        email: ProfileEmailUpdate,
-        password: ProfilePasswordUpdate,
-        confirmPassword: ProfileConfirmPasswordUpdate,
-        SignUpTime: time,
-        UserAgent: agent
-    }
+        getNameUpdate = getNameUpdate.value;
+        getEmailUpdate = getEmailUpdate.value;
+        getPasswordUpdate = getPasswordUpdate.value;
+        getConfirmPasswordUpdate=getConfirmPasswordUpdate.value;
 
-    console.log(obj);
 
-    if (true) {
+        const obj = {
+            name: getNameUpdate,
+            email: getEmailUpdate,
+            password: getPasswordUpdate,
+            confirmPassword: getConfirmPasswordUpdate,
+        }
 
+        console.log(obj)
 
         const keys = Object.keys(localStorage);
         for (let key of keys) 
         {
-
-            if (ProfileEmailUpdate === key) 
+            if(user === key)
             {
-                validate = false;
-                alert("Email Already Exists");
-
+                if ((getPasswordUpdate === getConfirmPasswordUpdate)) {
+                    if(user!==getEmailUpdate)
+                    {
+                        localStorage.removeItem(user);
+                        localStorage.setItem("currentUser", getEmailUpdate);
+                        localStorage.setItem(obj.email, JSON.stringify(obj));
+                    }
+                    else
+                    {
+                        localStorage.setItem(obj.email, JSON.stringify(obj));
+                        localStorage.setItem("currentUser", getEmailUpdate);
+                    }
+                    
+                    alert("Your account Information is Updated");
+                } else 
+                {
+                    alert("Password Does not match")
+                }
             }
+            
         }
-
-        if (validate) {
-
-            if ((ProfilePasswordUpdate === ProfileConfirmPasswordUpdate)) {
-                localStorage.setItem(obj.email, JSON.stringify(obj));
-                localStorage.setItem("currentUser", ProfileEmailUpdate);
-                localStorage.removeItem(ProfileEmail);
-                alert("Your account Information is Updated");
-            } else 
-            {
-                alert("Password Does not match")
-            }
-
-        }
-    }
+    })
 }

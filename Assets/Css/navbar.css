@@ -1,14 +1,22 @@
                         /* Logo */
+
 .logo{
-    height: 140%;
+    height: 35px;
+    padding: 0% ;
+    margin: 0%;
+
 }
+
+/* input[type="search"]:focus{
+    border: 1px solid black;
+    box-shadow: none;   
+} */
 .logotext{
     color: #508BD6 !important;
-    font-family: Luminari, fantasy;
-    font-size: 24px;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 18px;
     font-weight: bold;
-    margin-left: -19px;
-    margin-top: 2px;
+
 }
 
 #navbarSupportedContent{
@@ -16,7 +24,8 @@
 }
 
 .containerfluidnav{
-    height: 40px;
+    height: 25px;
+    width: 100%;
     display: flex;
 }
                     /* Main Nav button */
@@ -31,19 +40,23 @@
 #advanceSearchBtn,
 #addNewTransactionBtn{
     font-size: 14px !important;
-
+}
+#navbarSupportedContent li{
+    margin-top: -4px;
+    font-size: 13px;
+    font-weight: bolder;
 }
 
-.dropdown-menu li:hover{
+/* .dropdown-menu li:hover{
     font-size: 17px;
     font-weight: bolder;
     background-color: #0f4ee29b;
-}
+} */
 
-#navbarSupportedContent li:hover{
-    font-size: 17px;
-    font-weight: bolder;
-    background-color: #0d6dfd77;
+.profile img{
+    margin-left: 10px;
+    height: 28px;
+    border-radius: 50px;
 }
 
 
@@ -54,16 +67,27 @@
 }
                 /* Search Button */
 #searchBtn{
+    padding: 1% 2%;
+    font-weight: bold;
     font-size: 14px !important;
-    height: 32px;
-}
-                    /* Search Bar  */
-.searchbar{
-    height: 100%;
+    height: 30px;
     width: auto;
 }
+            /* Search Bar  */
 
-.navLoginSignBtn{
-    width: 120px;
+
+.navLoginSignBtn,
+navLoginSignBtn{
+    padding: 1px;
+    width: 90px;
+    height: 26px!important;
+    font-size: 12px;
+}
+
+.dropdown-menu{
+    right: 0!important; 
+    position:left;
+    margin-left: -40px;
+
 }
 

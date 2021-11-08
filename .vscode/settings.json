@@ -2,8 +2,11 @@
     "cSpell.words": [
         "cardtext",
         "confirmpassword",
+        "curentuser",
         "firstname",
+        "forgotpassword",
         "lastname",
-        "signup"
+        "signup",
+        "Upname"
     ]
 }

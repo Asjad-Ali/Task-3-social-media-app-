@@ -1,94 +1,59 @@
+    // 
+    // System: Basic Social Media App
+    // Developer: Asjad Ali (Frontend Trainee)
+    // Date: November 8,2021
+    // Organization: Programmer Force
+    // Purpose: This file signup.js is responsible to handle 
+    // the action and control signup action and Page using javascript.
+
+
 'use strict'
-var signUpname = document.getElementById("name");
-var SignUpEmail = document.getElementById("email");
-var SignUpPassword = document.getElementById("password");
-var SignUpConPassword = document.getElementById("confirmpassword");
+// Sign Up Ffields and button
+var fullName = document.getElementById("name");
+var email = document.getElementById("Email");
+var pwd = document.getElementById("password");
+var cpwd = document.getElementById("confirmpassword");
 
+var signupForm = document.getElementById("signupBtn");
 
-let valid = true;
+signupForm.addEventListener('click',  (event) => {
 
-function signup(){
-    
-    const xhr = new XMLHttpRequest();
+  event.preventDefault();
 
-    xhr.open('get', "https://api.ipify.org?format=json", "true");
+ 
 
-    xhr.onload = function() {
-        const UserIp = JSON.parse(this.responseText).ip;
-        localStorage.setItem("userIp", UserIp);
-        console.log(UserIp);
-    }
+ 
+let valid=true;
 
+  //if all the validations are true then store user data and redirect to login page
+  if (
+    validateName() &&
+    validateEmail() &&
+    validatePassword() &&
+    validateConfirmPassword()
+  ) {
 
-    xhr.send();
+    let obj = {
+      name: fullName.value,
+      email: email.value,
+      password: pwd.value,
+      confirmPassword: cpwd.value,
+    };
 
+    const keys = Object.keys(localStorage);
+    for (let key of keys) {
 
-
-    signUpname = signUpname.value;
-    SignUpEmail = SignUpEmail.value;
-    SignUpPassword = SignUpPassword.value;
-    SignUpConPassword = SignUpConPassword.value;
-
-    const time = new Date();
-    const agent = navigator.userAgent;
-
-
-    const obj = {
-        name: signUpname,
-        email: SignUpEmail,
-        password: SignUpPassword,
-        confirmPassword: SignUpConPassword,
-        SignUpTime: time,
-        UserAgent: agent
-
-    }
-
-
-    if ((signUpname && SignUpEmail && SignUpPassword && SignUpConPassword) != "") {
-
-        const keys = Object.keys(localStorage);
-        for (let key of keys) {
-
-            if (SignUpEmail === key) {
-                valid = false;
-                alert("This Email Already Exists");
-            }
+      if (obj.email === key) {
+        valid=false;
+        alert("This Email Already Exists");
         }
-        if (valid) {
-            if ((SignUpPassword === SignUpConPassword)) {
-                localStorage.setItem(obj.email, JSON.stringify(obj));
-                alert("Congrats Yours account is successfully created");
-                reload();
-            } else {
-                alert("Password Does not match")
-            }
-
-        }
-    } else {
-        alert("Kindly Fill the information Correctly");
+    }
+    if(valid)
+    {
+      localStorage.setItem(obj.email, JSON.stringify(obj));
+      alert("Congrats Yours account is successfully created");
+      window.open("/login.html", "_self");
     }
 
-}
-
-
-
-
-
-// function signup() {
-//     console.log("I'm sign up script");
-//     let userName = document.getElementById("name").value;
-//     let email = document.getElementById("email").value;
-//     let password = document.getElementById("password").value;
-//     let user = [{
-//         userName,
-//         email,
-//         password,
-//     }];
-//     let prevUsers = [];
-//     if(localStorage.getItem("users")){
-//         prevUsers = JSON.parse(localStorage.getItem("users"));    
-//     }
-//     localStorage.setItem("users", JSON.stringify([...prevUsers, user]));
-// }
-
-
+    }
+});

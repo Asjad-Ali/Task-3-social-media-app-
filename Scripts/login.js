@@ -1,38 +1,45 @@
+    // 
+    // System: Basic Social Media App
+    // Developer: Asjad Ali (Frontend Trainee)
+    // Date: November 8,2021
+    // Organization: Programmer Force
+    // Purpose: This file login.js is responsible to handle 
+    // the action and control of the login Page using javascript.
+    
+
+
+
+
 'use strict'
 
-let SignInEmail = document.getElementById('email');
-let SignInpassword = document.getElementById('password');
-
-let WelcomeName = "";
-
-function login() {
-
-
-    SignInEmail = SignInEmail.value;
-    SignInpassword = SignInpassword.value;
+let SignInEmail = document.getElementById('Loginemail');
+let SignInpassword = document.getElementById('Loginpassword');
+let loginBtn = document.getElementById('login-btn');
 
 
 
+var Valid=true;
 
-    if ((SignInEmail && SignInpassword) != "") {
+loginBtn.addEventListener('click',(e)=>{
+    e.preventDefault();
 
+    var signInEmail = SignInEmail.value;
+    var signInpassword = SignInpassword.value;
 
-
-        localStorage.setItem("currentUser", SignInEmail);
+    if (validateLoginEmail(SignInEmail) && validateLoginPassword(SignInpassword)) {
 
         const keys = Object.keys(localStorage);
         for (let key of keys) {
 
-            if (SignInEmail === key) {
+            if (signInEmail === key) {
 
-                if (SignInpassword === JSON.parse(localStorage.getItem(key)).password) {
+                if (signInpassword === JSON.parse(localStorage.getItem(key)).password) {
 
-                    WelcomeName = JSON.parse(localStorage.getItem(key)).name;
-                    console.log("WelcomeName");
-
+                    // WelcomeName = JSON.parse(localStorage.getItem(key)).name;
+                    localStorage.setItem("currentUser", signInEmail);
+                    
                     alert("Logged In Successfully");
-                    window.open("../Index.html",'_blank');
-                    // location.href = "";
+                    window.open("/Index.html",'_self');
 
                 }
                 else
@@ -42,44 +49,11 @@ function login() {
                 }
 
             }
+
         }
-    }
+    } 
+    else
+    alert("Please Enter both Email and Password ")
 
 
-};
-
-
-// let state = false;
-
-// function toggle() {
-//     const pass = document.getElementById("email");
-
-
-//     if (state) {
-//         pass.setAttribute("type", "email");
-//         state = false;
-
-//     } else {
-//         pass.setAttribute("type", "text");
-//         state = true;
-
-//     }
-
-// }
-
-// function toggle1() {
-//     const pass1 = document.getElementById("password");
-
-//     if (state) {
-//         pass1.setAttribute("type", "password");
-//         state = false;
-
-//     } else {
-//         pass1.setAttribute("type", "text");
-//         state = true;
-
-//     }
-
-// }
-
-
+});

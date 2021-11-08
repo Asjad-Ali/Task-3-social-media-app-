@@ -1,0 +1,273 @@
+
+.mainDiv{
+    background-color: #E4E4E3;
+    padding: 3px;
+
+}
+.mainDiv>div{
+    padding: 2px 12px;
+}
+
+
+
+/* .mainDiv>{
+    padding: 10px 15px;
+    background-color: #e2e1e1;
+    border-radius: 8px;
+    margin-bottom: 15px;
+} */
+.userDivMain h6{
+    font-size: 13px;
+    padding: 0px;
+    margin: 0px;
+}
+.userDiv p{
+    font-size: 10px;
+    padding: 0px;
+    margin: 0px;
+}
+
+.postDivMain{
+    border-radius: 10px;
+    margin-top: 46px;
+    background-color: white;
+    padding: 10px;
+}
+
+.postDiv{
+    background-color: white;
+    padding: 10px;
+}
+
+
+
+.userDivMain{
+    background-color: white;
+    position: sticky;
+    top: 3rem;
+    margin-bottom: 15px;
+    border-radius: 10px;
+
+}
+
+.GroupDiv{
+    background-color: white;
+    position: sticky;
+    top: 16rem;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    height: 64vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+
+#userDivMainID{
+    height: 90vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.userDiv{
+    border-radius: 10px;
+    margin: 1px 6px;
+    display: flex;
+    align-items: center;
+    justify-content:space-around;
+    
+
+      /* height: 112vh;
+    overflow-y: scroll;
+    overflow-x: hidden; */
+
+}
+
+
+.tagDivMain{
+    background-color: white;
+    position: sticky;
+    top: 3rem;
+    height: 12rem;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    overflow-y: scroll;
+    overflow-x: scroll;
+
+}
+
+
+
+.profilePicDiv img,
+.postDivSearch img,
+.userDiv img{
+    padding: 2px 0px;
+    border-radius: 15px;
+    height: 40px
+}
+
+.tagDiv a{
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.postDivSearch{
+        padding: 5px;
+}
+
+input[type="search"]{
+    background-color: #f0f0ef;
+    height: 30px;
+    border-radius: 15px; 
+}
+
+input[type="search"]:focus{
+    box-sizing: border-box;
+    box-shadow: none;
+}
+.userNameDiv{
+    padding: 0px;
+}
+
+.removebtn{
+    text-align: center;
+    padding: 0px;
+    font-size: 12px;
+    height: 20px;
+    width: 60px;
+}
+
+.smallBtn{
+    text-align: center;
+    padding: 0px;
+    font-size: 12px;
+    height: 20px;
+    width: 80px;
+}
+
+
+
+
+
+/* <!-- ==========>Profile Picture <============= --> */
+
+.profilePicRow{
+    display: flex;
+    justify-content: space-between;
+}
+
+.profileNameDiv{
+    display: flex;
+    flex-flow: column;
+    justify-content:center;
+    align-items: stretch;
+}
+
+.profileNameDiv h6,p{
+    padding-left: 5px;
+    margin: 0px;
+}
+.profileNameDiv p{
+    font-size: 10px;
+}
+.postImg img{
+    border-radius: 5px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.postDiv{
+    padding: 0px;
+    margin: 7px 0px;
+}
+.likeCommentDiv{
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+.likeCommentDiv i,a :hover{
+    font-weight: bold;
+    font-size: 13px;
+}
+hr{
+    margin:0px;
+}
+#mainLine{
+    background-color: #E4E4E3;
+    width: 104%;
+    margin-left: -12px;
+    padding: 10px;
+
+}
+#mainLine hr{
+    height: 1px;
+    margin-left: -9.5px;
+    width: 103%;
+}
+.likeCommentDiv a{
+    text-decoration: none;
+    color: black;
+}
+
+
+
+/* =============> icon and button <============ */
+.postIcon i{
+    color: rgb(59, 59, 59);
+    padding: 1px 5px;
+    font-size: 15px !important;
+}
+.likeCommentDiv i{
+        color: rgb(59, 59, 59);
+        padding: 1px 5px;
+}
+
+.postIcon{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 10px 5px;
+}
+.postIcon a{
+    text-decoration: none;
+    color: rgb(59, 59, 59);
+}
+.postIcon i,a :hover{
+    font-size: 16px;
+    font-weight: bold;
+}
+
+#loadMoreBtn:active{
+    font-weight: bold;
+    font-size: 15px;
+}
+#loadMoreBtn:hover{
+    font-weight: bold;
+    box-sizing: border-box;
+    background-color: none;
+}
+
+#loadMoreBtn{
+    box-shadow: none;
+    outline: none;
+    border-radius: 10px;
+}
+
+#writeIcon{
+    color: #FC9295;
+    font-size: 19px !important;
+}
+
+#photoIcon{
+    color: #7FC15E;
+    font-size: 19px !important;
+}
+#videoIcon{
+    color: #7FC15E;
+    font-size: 19px !important;
+}
+#EventIcon{
+    color: #E7A33E;
+    font-size: 19px !important;
+}
+

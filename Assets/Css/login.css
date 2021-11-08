@@ -9,7 +9,7 @@
 
 
 .login-form div{
-    margin-top: 5px;
+    margin-top: 0px;
 }
 
 
@@ -27,7 +27,6 @@ input[type="password"]:focus{
 #login-btn{
     margin-top: 5px;
 }
-
 
     /* Media Query */
 

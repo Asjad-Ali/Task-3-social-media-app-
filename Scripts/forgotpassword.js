@@ -1,38 +1,42 @@
+    // 
+    // System: Basic Social Media App
+    // Developer: Asjad Ali (Frontend Trainee)
+    // Date: November 8,2021
+    // Organization: Programmer Force
+    // Purpose: This file forgotpassword.js is responsible to handle 
+    // the action and control of the forgot password Page using javascript.
+    // to forgot the password
+
+
 'use strict'
 
-console.log("hello I'm forgot password");
+let valid=true;
 
 
-
-function ForgotPassword() {
     let ForgotEmail = document.getElementById("getEmail");
-    let ForgotPasswordID = document.querySelector("givePassword");
+    let forgotPassBtn = document.getElementById("forgotPassBtn");
+ 
+    forgotPassBtn.addEventListener('click',(e)=>{
+        e.preventDefault();
+        ForgotEmail = ForgotEmail.value;
 
-
-    ForgotEmail = ForgotEmail.value;
-    alert(ForgotEmail)
     if (ForgotEmail != "") {
-
         const keys = Object.keys(localStorage);
         for (let key of keys) {
-            // alert(key)
-            if (ForgotEmail === key) {
-                password = JSON.parse(localStorage.getItem(key)).name;
-                alert("Your Password is:"+password )
-               
-                console.log(CurrentUserData.password)
-                ForgotPasswordID.setAttribute("value",password);
+
+           if (ForgotEmail === key) {
+               valid=false;
+               let Password=JSON.parse(localStorage.getItem(key)).password;
+                document.getElementById("givePassword").value=Password;
                
             }
-            else
-            {
-                alert("Email dosn't exit");
-            }
+        }
+        if(valid)
+        {
+            alert("Your Email doesn't exist")
         }
     }
     else
     {
         alert("Please Enter Email First")
-    }
-
-}
+}})
